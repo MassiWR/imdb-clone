@@ -24,19 +24,27 @@
 
                     <div class="mt-10">
                         <h4 class="text-white text-semibold">CAST</h4>
-                            <div class="flex mt-1">
-                                @foreach ($movie['credits']['cast'] as $cast)
-                                    @if ($loop->index < 3)
-                                        <div class="mr-8">
-                                            <div class="text-orange-300">{{$cast['name']}}</div>
-                                            <div class="text-gray-300">As</div>
-                                            <div class="text-green-600">{{$cast['character']}}</div>
-                                        </div>
-                                @endif
+                        <div class="flex mt-1">
+                        @foreach ($movie['credits']['cast'] as $cast)
+                           @if ($loop->index < 3)
+                            <div class="mr-8">
+                                <div class="text-orange-300">{{$cast['name']}}</div>
+                                <div class="text-gray-300">As</div>
+                                <div class="text-green-300">{{$cast['character']}}</div>
+                                
+                                
+                            </div>
+                               
+                           @endif
                         @endforeach
+                        </div>
+                    
                     </div>
+                    <div class="mt-12">
+                        <button class="flex items-center bg-orange-400 text-white rounded font-semibold px-5 py-4 hover:bg-orange-600">Add to watchlist</button>
+                    </div>
+
                 </div>
-            </div>
         </div>
     </section> <!-- end of movie info -->
 @endsection

@@ -29,7 +29,7 @@ class MoviesController extends Controller
             return [$genre['id'] => $genre['name']];
         });
 
-        dump($popularMovies);
+
 
         return view('index', [
             'popularMovies' => $popularMovies,
@@ -71,7 +71,7 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/movie/' . $id . '?append_to_response=credits')
             ->json();
 
-        dump($movie);
+
         return view('movie', [
             'movie' => $movie,
         ]);

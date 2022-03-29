@@ -17,7 +17,7 @@
 
             <ul class="flex flex-col md:flex-row items-center">
                 <li>
-                    <a class="logo" href="#">IMDB CLONE</a>
+                    <a class="logo" href="{{route('movies.index')}}">IMDB</a>
                 </li>
 
                 <li class="md:ml-16 mt-3 md:mt-0">
