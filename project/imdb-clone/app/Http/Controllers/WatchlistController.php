@@ -9,12 +9,12 @@ class WatchlistController extends Controller
 {
     public function index()
     {
-        return Movie::all();
+        return Watchlist::all();
     }
 
     public function store(Request $request)
     {
-        $movie = new Movie;
+        $movie = new Movies;
         $movie->title = $request->get('title');
         $movie->watchlist = $request->get('watchlist', false);
         $movie->save();
@@ -24,7 +24,7 @@ class WatchlistController extends Controller
 
     public function watchlist($id, Request $request)
     {
-        $movie = Movie::Where($id)->first();
+        $movie = Movies::Where($id)->first();
         $movie->watchlist = ($request->get('watchlist') == 'true') ? true : false;
         $movie->save();
 
@@ -33,7 +33,7 @@ class WatchlistController extends Controller
 
     public function destroy($id)
     {
-        $movie = Movie::find($id);
+        $movie = Movies::find($id);
         $movie->delete();
 
         return $movie;
