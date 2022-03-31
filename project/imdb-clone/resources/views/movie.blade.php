@@ -41,10 +41,10 @@
                     
                     </div>
                     <div class="mt-12">
-                        <button class="flex items-center bg-orange-400 text-white rounded font-semibold px-5 py-4 hover:bg-orange-600">Add to watchlist</button>
-                    </div>
-
-                </div>
+                        <button name= "watchlist" class="flex items-center bg-gray-800 text-white rounded font-semibold px-5 py-4 hover:bg-orange-600">Add to watchlist</button>
+                    </div>   
+                <div>
+            </div>
         </div>
     </section> <!-- end of movie info -->
 @endsection
