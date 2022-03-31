@@ -9,5 +9,5 @@ Route::get('/', [MoviesController::class , 'index']);
 
 
 Route::get('/movie/{id}', [MoviesController::class , 'show'])->name('movies.show');
-Route::get('watchlist/{id}', [WatchlistController::class, 'store'])->name('watchlist.store');
-
+Route::get('movie/{id}', [WatchlistController::class, 'store'])->name('movie.store'); 
+    

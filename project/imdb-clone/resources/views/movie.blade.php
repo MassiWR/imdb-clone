@@ -34,8 +34,8 @@
                     @endif
                     @endforeach
                 </div>
-                <div class="mt=12">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-yellow-100 rounded">Add to Watchlist</button>
+                <div class="mt-12">
+                    <button name="watchlist" class="flex items-center bg-gray-800 text-white rounded font-semibold px-5 py-4 hover:bg-orange-600">Add to watchlist</button>
                 </div>
             </div>
 
