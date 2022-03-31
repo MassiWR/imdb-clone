@@ -35,7 +35,10 @@
                                 @endif
                         @endforeach
                     </div>
-                </div>
+                    <div class="mt-12">
+                        <button name= "watchlist" class="flex items-center bg-gray-800 text-white rounded font-semibold px-5 py-4 hover:bg-orange-600">Add to watchlist</button>
+                    </div>   
+                <div>
             </div>
         </div>
     </section> <!-- end of movie info -->
