@@ -2,43 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
+use App\Models\Watchlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
 class WatchlistController extends Controller
 {
-    public function index()
+    public function store(Request $request, Movie $movie)
     {
-        return Watchlist::all();
+        if (Watchlist::where('movie_id', $request->movie_id)->exists()) {
+            return back()->with([
+                'success' => 'The movie is already in your Watchlist!'
+            ]);
+        } else {
+            $attributes = request()->validate([
+                'movie_id' => 'required',
+            ]);
+            Watchlist::create($attributes);
+            return back()->with([
+                'success' => 'The movie is added to your Watchlist!'
+            ]);
+        }
     }
 
-    public function store(Request $request)
+    public function show()
     {
-        $movie = new Movies;
-        $movie->title = $request->get('title');
-        $movie->watchlist = $request->get('watchlist', false);
-        $movie->save();
+        $watchlists = Watchlist::orderBy('created_at')
+            ->paginate(10);
 
-        return $movie;
+        return view('movies.watchlist', [
+            'watchlists' => $watchlists
+        ]);
     }
 
-    public function watchlist($id, Request $request)
+    public function destroy()
     {
-        $movie = Movies::Where($id)->first();
-        $movie->watchlist = ($request->get('watchlist') == 'true') ? true : false;
-        $movie->save();
+        $movieId = request('movie_id');
+        $id = request('id');
 
-        return $movie;
+        if (isset($id)) {
+            Watchlist::find($id)->delete();
+            return back()->with([
+                'success' => 'The movie was deleted from your watchlist.',
+            ]);
+        } else {
+            Watchlist::where('movie_id', $movieId)->delete();
+            return back()->with([
+                'success' => 'The movie was deleted from your watchlist.',
+            ]);
+        }
     }
-
-    public function destroy($id)
-    {
-        $movie = Movies::find($id);
-        $movie->delete();
-
-        return $movie;
-    }
-
-
-
 }
