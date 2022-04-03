@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,9 +53,16 @@
 
         </section>
     </nav>
+
+
     @yield('content')
 
-    
+    <footer class="text-center bg-gray-900 text-white">
+    <div class="grid gap-4 md:gap-6 text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2021 Copyright
+        
+    </div>
+</footer>
 
 
 </body>
