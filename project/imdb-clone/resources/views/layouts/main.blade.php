@@ -18,7 +18,7 @@
 
             <ul class="flex flex-col md:flex-row items-center">
                 <li>
-                    <a class="logo" href="{{route('movies.index')}}">IMDB</a>
+                    <a class="logo" href="{{route('movies.index')}}">MOVIE</a>
                 </li>
 
                 <li class="md:ml-16 mt-3 md:mt-0">
@@ -54,16 +54,16 @@
         </section>
     </nav>
 
-
     @yield('content')
 
     <footer class="text-center bg-gray-900 text-white">
-    <div class="grid gap-4 md:gap-6 text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2021 Copyright
-        
-    </div>
-</footer>
+        <div class="mb-0 text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright
+
+        </div>
+    </footer>
 
 
 </body>
+
 </html>
