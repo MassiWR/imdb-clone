@@ -5,7 +5,7 @@
     <section class="movie-info">
         <div class="movie-info border-b border-gray-800">
             <div class="container max-auto px-4 py-16 flex flex-col md:flex-row">
-                <img src="{{'https://image.tmdb.org/t/p/w342/'.$movie['poster_path']}}" alt="pulp fiction" class="w-64 md:w-96">
+                <img src="{{'https://image.tmdb.org/t/p/w342/'.$movie['poster_path']}}" alt="movie poster" class="w-64 md:w-96">
                 <div class="md:ml-24">
                     <h2 class="text-4xl font-semibold mt-4">{{$movie['title']}}</h2>
                     

@@ -43,8 +43,11 @@
 
             <!-- Search bar -->
             <ul class="flex flex-col md:flex-row mt-3 md:mt-0 items-center">
-                <div class="relative mt-3 md:mt-0">
-                    <input type="text" class="text-gray-900 bg-white-800 text-sm rounded-full w-100 pl-5 px-10 py-2" placeholder="Search">
+                <div class="relative mt-3 mr-4 md:mt-0 hover:text-gray-300">
+                    <a class="hover:text-orange-500" href="{{ route('auth.login')}}">Login</a>
+                </div>
+                <div class="relative mt-3 md:mt-0 hover:text-gray-300">
+                    <a class="hover:text-orange-500" href="{{ route('auth.register')}}">Register</a>
                 </div>
             </ul>
 
