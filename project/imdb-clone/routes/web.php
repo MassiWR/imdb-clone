@@ -11,3 +11,6 @@ Route::get('/movie/{id}', [MoviesController::class , 'show'])->name('movies.show
 Route::get('/login', [AuthController::class , 'login'])->name('auth.login');
 Route::get('/register', [AuthController::class , 'register'])->name('auth.register');
 Route::post('/save', [AuthController::class , 'save'])->name('auth.save');
+Route::post('/check', [AuthController::class , 'check'])->name('auth.check');
+Route::get('/logout', [AuthController::class , 'logout'])->name('auth.logout');
+Route::get('/profile', [AuthController::class , 'profile'])->name('profile.logged');
