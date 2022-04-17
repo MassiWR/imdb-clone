@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,10 +24,10 @@
                 <li class="md:ml-16 mt-3 md:mt-0">
                     <a href="#" class="hover:text-gray-300">Movies</a>
                 </li>
-                
+
             </ul>
 
-            <!-- Search bar -->
+            <!-- Search bar?? -->
             <ul class="flex flex-col md:flex-row mt-3 md:mt-0 items-center">
                 <div class="relative mt-3 mr-4 md:mt-0 hover:text-gray-300">
                     <a class="hover:text-orange-500" href="{{ route('auth.login')}}">Login</a>
@@ -35,9 +36,6 @@
                     <a class="hover:text-orange-500" href="{{ route('auth.register')}}">Register</a>
                 </div>
             </ul>
-
-
-
         </section>
     </nav>
     @yield('content')
@@ -49,8 +47,9 @@
         </div>
     </footer>
 
-    
+
 
 
 </body>
+
 </html>
