@@ -45,7 +45,7 @@ class MoviesController extends Controller
      */
     public function create()
     {
-    //
+        //
     }
 
     /**
@@ -56,7 +56,7 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-    //
+        //
     }
 
     /**
@@ -71,6 +71,7 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/movie/' . $id . '?append_to_response=credits')
             ->json();
 
+       
 
         return view('movie', [
             'movie' => $movie,
@@ -85,7 +86,7 @@ class MoviesController extends Controller
      */
     public function edit($id)
     {
-    //
+        //
     }
 
     /**
@@ -97,7 +98,7 @@ class MoviesController extends Controller
      */
     public function update(Request $request, $id)
     {
-    //
+        //
     }
 
     /**
@@ -108,6 +109,6 @@ class MoviesController extends Controller
      */
     public function destroy($id)
     {
-    //
+        //
     }
 }
