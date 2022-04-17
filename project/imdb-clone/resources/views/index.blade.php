@@ -4,7 +4,11 @@
 <section class="container mx-auto px-4 pt-16">
     <!-- popular movies section -->
     <div class="popular-movies">
+style
         <h2 class="text-4xl text-center uppercase tracking-wider text-orange-300 font-semibold pb-4">Popular Movies</h2>
+
+        <h2 class="text-lg text-center uppercase tracking-wider text-yellow-300 font-semibold pb-4">Most Popular Movies</h2>
+main
 
         <!-- Grid for all movies -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-8 gap-10">
