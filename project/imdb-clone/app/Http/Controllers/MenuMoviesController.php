@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class MenuMoviesController extends Controller
 {
-    public function show(Request $request)
+    /*public function index()
     {
 
 
@@ -17,7 +17,7 @@ class MenuMoviesController extends Controller
 
         
         return view('menuMovies', [
-            'trending' => $trendingMovies,
+            'trendingMovies' => $trendingMovies,
             
         ]);
 
@@ -43,5 +43,51 @@ class MenuMoviesController extends Controller
             
         ]);
 
+        $genresArray = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/genre/movie/list')
+            ->json()['genres'];
+
+
+        $genres = collect($genresArray)->mapWithKeys(function ($genre) 
+        {
+            return [$genre['id'] => $genre['name']];
+        });
+    
+    }*/
+
+
+
+    public function show(Request $id)
+    {
+        $trendingMovies = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/trending/movie/day' . $id . '?append_to_response=credits')
+            ->json();
+
+
+        return view('menuMovies', [
+            'trendingMovies' => $trendingMovies,
+        ]);
+    
+
+    
+        $topRated = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/top_rated' . $id . '?append_to_response=credits')
+            ->json();
+
+
+        return view('menuMovies', [
+            'topRated' => $topRated,
+        ]);
+    
+
+    
+        $upcoming = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/upcoming' . $id . '?append_to_response=credits')
+            ->json();
+
+
+        return view('menuMovies', [
+            'upcoming' => $upcoming,
+        ]);
     }
 }
