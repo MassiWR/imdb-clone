@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class MenuMoviesController extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
 
 
