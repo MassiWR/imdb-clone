@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class MenuMoviesController extends Controller
 {
-    /*public function index()
+    public function index()
     {
 
 
@@ -53,7 +53,7 @@ class MenuMoviesController extends Controller
             return [$genre['id'] => $genre['name']];
         });
     
-    }*/
+    }
 
 
 
