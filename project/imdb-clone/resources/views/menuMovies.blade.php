@@ -1,6 +1,7 @@
 
 @extends('layouts.main')
 @section('content')
+
 <section class="container mx-auto pt-16">
 
 <!--Grid for trending movies -->
@@ -14,7 +15,6 @@
             @endforeach
         </div>
 </div>
-
 
 
 <!--Grid for Top rated movies -->
