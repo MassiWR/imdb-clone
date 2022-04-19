@@ -75,7 +75,33 @@ class MoviesController extends Controller
         return view('movie', [
             'movie' => $movie,
         ]);
+
     }
+    
+
+    public function showMenu ()
+    
+    {
+        $trendingMovies = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/trending/movie/day')
+            ->json();
+
+        $topRated = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/top_rated')
+            ->json();
+
+        $upcoming = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/upcoming')
+            ->json();
+
+              
+    
+        return view('menuMovies', [
+                'trendingMovies' => $trendingMovies,
+                'topRated' => $topRated,
+                'upcoming' => $upcoming,
+    ]);
+}
 
     /**
      * Show the form for editing the specified resource.

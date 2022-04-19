@@ -11,7 +11,7 @@ Route::get('/', [MoviesController::class , 'index'])->name('movies.index');
 Route::get('/movie/{id}', [MoviesController::class , 'show'])->name('movies.show');
 
 
-Route::get('/menuMovies', [MenuMoviesController::class , 'show'])->name('menuMovies.show');
+Route::get('/menuMovies', [MoviesController::class , 'showMenu'])->name('menuMovies.showMenu');
 
 Route::post('/save', [AuthController::class , 'save'])->name('auth.save');
 Route::post('/check', [AuthController::class , 'check'])->name('auth.check');

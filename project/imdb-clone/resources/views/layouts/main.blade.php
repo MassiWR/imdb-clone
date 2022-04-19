@@ -22,7 +22,7 @@
                 </li>
 
                 <li class="md:ml-16 mt-3 md:mt-0">
-                    <a href="{{ route('menuMovies.show')}}" class="hover:text-gray-300">Movies</a>
+                    <a href="{{ route('menuMovies.showMenu')}}" class="hover:text-gray-300">Movies</a>
                 </li>
 
             </ul>
