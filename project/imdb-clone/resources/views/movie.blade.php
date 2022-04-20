@@ -31,11 +31,12 @@
                                 <div class="text-orange-300">{{$cast['name']}}</div>
                                 <div class="text-gray-300">As</div>
                                 <div class="text-green-300">{{$cast['character']}}</div>
-                                
-                                
                             </div>
-                               
+
+                           @else
+                                @break
                            @endif
+
                         @endforeach
                         </div>
                     
