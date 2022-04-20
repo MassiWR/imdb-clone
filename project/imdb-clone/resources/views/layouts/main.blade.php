@@ -42,7 +42,7 @@
 
     <footer class="text-center bg-gray-900 text-white">
         <div class="mb-0 text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2021 Copyright
+            © 2022 Copyright
 
         </div>
     </footer>

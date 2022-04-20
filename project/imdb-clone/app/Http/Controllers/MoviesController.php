@@ -45,7 +45,7 @@ class MoviesController extends Controller
      */
     public function create()
     {
-    //
+        //
     }
 
     /**
@@ -56,7 +56,7 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-    //
+        //
     }
 
     /**
@@ -75,12 +75,11 @@ class MoviesController extends Controller
         return view('movie', [
             'movie' => $movie,
         ]);
-
     }
-    
 
-    public function showMenu ()
-    
+
+    public function showMenu()
+
     {
         $trendingMovies = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/trending/movie/day')
@@ -90,18 +89,13 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/movie/top_rated')
             ->json()['results'];
 
-        $upcoming = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/upcoming')
-            ->json()['results'];
+       
 
-              
-    
         return view('menuMovies', [
-                'trendingMovies' => $trendingMovies,
-                'topRated' => $topRated,
-                'upcoming' => $upcoming,
-    ]);
-}
+            'trendingMovies' => $trendingMovies,
+            'topRated' => $topRated,           
+        ]);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -111,7 +105,7 @@ class MoviesController extends Controller
      */
     public function edit($id)
     {
-    //
+        //
     }
 
     /**
@@ -123,7 +117,7 @@ class MoviesController extends Controller
      */
     public function update(Request $request, $id)
     {
-    //
+        //
     }
 
     /**
@@ -134,6 +128,6 @@ class MoviesController extends Controller
      */
     public function destroy($id)
     {
-    //
+        //
     }
 }
