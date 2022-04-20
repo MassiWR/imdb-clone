@@ -15,6 +15,29 @@
 </div>
 
 
+<!--Grid for top rated movies -->
+<div class="topRated">
+<h2 class="text-4xl text-left uppercase tracking-wider text-orange-300 font-semibold pb-4">Top Rated</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-8 gap-10">
+            @foreach ($topRated as $movie)
+           {{$movie['title']}}
+            @endforeach
+        </div>
+</div>
+
+
+<!--Grid for upcoming movies -->
+<div class="upcoming">
+<h2 class="text-4xl text-left uppercase tracking-wider text-orange-300 font-semibold pb-4">Upcoming</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-8 gap-10">
+            @foreach ($upcoming as $movie)
+           {{$movie['title']}}
+            @endforeach
+        </div>
+</div>
+
+
+
 
 
 
