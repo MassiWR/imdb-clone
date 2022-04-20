@@ -42,11 +42,11 @@ class AuthController extends Controller
         ]);
 
         // insert data into database
-        $admin = new Admin;
-        $admin->name = $request->name;
-        $admin->email = $request->email;
-        $admin->password = Hash::make($request->password);
-        $save = $admin->save();
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $save = $user->save();
 
         if ($save) {
             return back()->with('success', 'Your account has been created successfully');
@@ -66,7 +66,7 @@ class AuthController extends Controller
         ]);
 
         //query to fetch user with request email from admins table
-        $userInfo = Admin::where('email', '=', $request->email)->first();
+        $userInfo = User::where('email', '=', $request->email)->first();
 
         if (!$userInfo) {
             return back()->with('fail', "No account found with given email address");
@@ -95,12 +95,9 @@ class AuthController extends Controller
     // profile for logged in users
     function profile()
     {
-        $data = ['LoggedUser' => Admin::where('id', '=', session('LoggedUser'))->first()];
+        $data = ['LoggedUser' => User::where('id', '=', session('LoggedUser'))->first()];
         return view('profile', $data);
     }
-
-
-
 
 
 }
