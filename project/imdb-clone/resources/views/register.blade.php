@@ -42,7 +42,7 @@
     <br>
     
 
-    <button class="flex items-center bg-gray-500 text-white rounded-sm font-semibold px-6 py-2 hover:bg-orange-300" type="submit">Confirm</button>
+    <button class="flex items-center bg-gray-800 text-white rounded font-semibold px-5 py-3 hover:bg-orange-600" type="submit">Confirm</button>
     <br>
     <a class="hover:text-orange-500" href="{{ route('auth.login')}}">Already have an account</a>
     
