@@ -24,21 +24,6 @@
                     <a href="#" class="hover:text-gray-300">Movies</a>
                 </li>
 
-                <li class="md:ml-6 mt-3 md:mt-0">
-                    <a href="#" class="hover:text-gray-300">Tv Shows</a>
-                </li>
-
-                <li class="md:ml-6 mt-3 md:mt-0">
-                    <a href="#" class="hover:text-gray-300">Actors</a>
-                </li>
-
-                <li class="md:ml-6 mt-3 md:mt-0">
-                    <a href="#" class="hover:text-gray-300">Genres</a>
-                </li>
-
-                <li class="md:ml-6 mt-3 md:mt-0">
-                    <a href="#" class="hover:text-gray-300">Watchlist</a>
-                </li>
             </ul>
 
             <!-- Search bar -->
