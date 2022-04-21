@@ -22,5 +22,8 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/profile', [AuthController::class , 'profile']);
     Route::get('/login', [AuthController::class , 'login'])->name('auth.login');
     Route::get('/register', [AuthController::class , 'register'])->name('auth.register');
+    Route::get('/staff', [AuthController::class , 'staff'])->name('auth.staff');
+    Route::get('/settings', [AuthController::class , 'settings'])->name('auth.settings');
+
 
 });

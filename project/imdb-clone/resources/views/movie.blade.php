@@ -26,11 +26,28 @@
                     <h4 class="text-white text-semibold">CAST</h4>
                     <div class="flex mt-1">
                         @foreach ($movie['credits']['cast'] as $cast)
+
                         @if ($loop->index < 3) <div class="mr-8">
                             <div class="text-orange-300">{{$cast['name']}}</div>
                             <div class="text-gray-300">As</div>
                             <div class="text-green-300">{{$cast['character']}}</div>
 
+
+
+                           @if ($loop->index < 3)
+                            <div class="mr-8">
+                                <div class="text-orange-300">{{$cast['name']}}</div>
+                                <div class="text-gray-300">As</div>
+                                <div class="text-green-300">{{$cast['character']}}</div>
+                            </div>
+
+                           @else
+                                @break
+                           @endif
+
+                        @endforeach
+                        </div>
+                    
 
                     </div>
 
