@@ -4,7 +4,7 @@
     
 <section class="flex items-center justify-center min-h-screen bg-gray-900">
     <div class="px-10 py-6 mt-0 text-left">
-        <h1 class="text-orange-300 text-lg">CREATE AN ACCOUNT</h1>
+        <h1 class="text-orange-600 text-lg">CREATE AN ACCOUNT</h1>
 <form action="{{route('auth.save')}}" method="post">
     @if (Session::get('success'))
 
