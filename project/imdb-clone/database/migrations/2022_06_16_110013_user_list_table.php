@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('list', function(Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('movie');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     * 
      *
      * @return void
      */
