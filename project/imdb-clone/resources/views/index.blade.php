@@ -1,5 +1,6 @@
 @extends('layouts.main')
 
+
 @section('content')
 <section class="container mx-auto px-4 pt-16">
     <!-- popular movies section -->
