@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@extends('layouts.logged')
 @section('content')
 
 <section class="container mx-auto px-4 pt-16">

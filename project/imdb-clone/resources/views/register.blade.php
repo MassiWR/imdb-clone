@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@extends('layouts.logged')
 
 @section('content')
     
