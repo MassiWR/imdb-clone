@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class UserList extends Model
 {
     use HasFactory;
+    protected $table = 'user_list';
+    protected $fillable = [    
+    'user_id',
+    'movies_id',
+    ];
 }
