@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@extends('layouts.logged')
+
 
 @section('content')
     <!-- info about a specific movie -->
@@ -40,14 +40,17 @@
                                 
                                 
                             </div>
-                               
+                                                                                       
                            @endif
                         @endforeach
                         </div>
                     
                     </div>
-                     
-                <div>
+
+                    <div class="mt-10">
+                    <button class="flex items-center bg-gray-500 text-white rounded-sm font-semibold px-6 py-3 hover:bg-orange-600" type="submit">Add to Watchlist</button>
+                </div>
+
             </div>
         </div>
     </section> <!-- end of movie info -->
