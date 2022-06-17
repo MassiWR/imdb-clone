@@ -23,7 +23,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/profile', [AuthController::class , 'profile']);
     Route::get('/login', [AuthController::class , 'login'])->name('auth.login');
     Route::get('/register', [AuthController::class , 'register'])->name('auth.register');
-    Route::get('/movies/add_to_watchlist/{id}', [UserListController::class, 'create']);
-    Route::get('/movies/remove_from_watchlist/{id}', [UserListController::class, 'destroy']);
+    Route::get('/watchlist/add_to_watchlist/{id}', [WatchlistController::class, 'create']);
+    Route::get('/watchlist/remove_from_watchlist/{id}', [WatchlistController::class, 'destroy']);
 
 });
