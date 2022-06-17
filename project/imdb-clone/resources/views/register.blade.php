@@ -1,6 +1,4 @@
 @extends('layouts.main')
-@extends('layouts.logged')
-
 @section('content')
     
 <section class="flex items-center justify-center min-h-screen bg-gray-900">
