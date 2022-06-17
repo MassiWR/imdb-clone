@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserList extends Controller
+class Watchlist extends Controller
 {
     protected function create($movieId) 
     {
-        UserList::create([
+        Watchlist::create([
             'user_id' => auth()->user()->id,
             'movies_id' => $movieId,
         ]);
@@ -16,8 +16,10 @@ class UserList extends Controller
     }
     protected function destroy($watchlistId)
     {
-        $watchlistId = UserList::where('id', $watchlistId)->first();
+        $watchlistId = Watchlist::where('id', $watchlistId)->first();
         $watchlistId->delete();
         return redirect() -> back();
     }
+
+    //hämta elementer i listan?? moviesController??
 }
