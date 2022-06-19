@@ -35,9 +35,7 @@
                            @if ($loop->index < 3)
                             <div class="mr-8">
                                 <div class="text-orange-300 text-lg">{{$cast['name']}}</div>
-                                <div class="text-gray-300 text-sm">as {{$cast['character']}}</div>
-                                
-                                
+                                <div class="text-gray-300 text-sm">as {{$cast['character']}}</div>                              
                                 
                             </div>
                                                                                        
@@ -46,10 +44,20 @@
                         </div>
                     
                     </div>
-
-                    <div class="mt-10">
-                    <button class="flex items-center bg-gray-500 text-white rounded-sm font-semibold px-6 py-3 hover:bg-orange-600" type="submit">Add to Watchlist</button>
+                    @if($current_user && !$movieIsAdded)
+                    <form action="{{route('add_to_watchlist', $movie->id)}}" method="POST" class="">
+                        @csrf                                            
+                    <button class="flex items-center bg-gray-500 text-white rounded-sm font-semibold px-6 py-3 hover:bg-orange-600" onclick="timeout()" type="submit">
+                        Add to Watchlist
+                    </button>
+                    </form>
+                    @elseif($current_user && $movieIsAdded)
+                    <button class="flex items-center bg-gray-500 text-white rounded-sm font-semibold px-6 py-3 hover:bg-orange-600" onclick="timeout()" type="submit">
+                        Already in your Watchlist                        
+                    </button>
+                    @endif
                 </div>
+
 
             </div>
         </div>

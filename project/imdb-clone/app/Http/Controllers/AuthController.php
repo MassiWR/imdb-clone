@@ -47,6 +47,7 @@ class AuthController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $save = $user->save();
+        $current_user = $user;
 
         if ($save) {
             return back()->with('success', 'Your account has been created successfully');

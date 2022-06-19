@@ -3,23 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\MoviesController;
 
 class Watchlist extends Controller
 {
-    protected function create($movieId) 
+    public function store(Request $request, MoviesController $movie)
     {
-        Watchlist::create([
-            'user_id' => auth()->user()->id,
-            'movies_id' => $movieId,
-        ]);
-        return redirect() -> back ();
-    }
-    protected function destroy($watchlistId)
-    {
-        $watchlistId = Watchlist::where('id', $watchlistId)->first();
-        $watchlistId->delete();
-        return redirect() -> back();
-    }
+        if ($movie->addedBy($request->user())){
+            return response(null, 409);
+        }
 
-    //hämta elementer i listan?? moviesController??
+        $movie->Watchlist()->create([
+            'user_id' => $request->user()->id,
+            'movies_id' => $movie->id,
+        ]);
+        session()->flash('add-message', "The movie was added to your watchlist");
+
+        return back();
+    }
+    protected function destroy(MoviesController $movie, Request $request)
+    {
+        $request->user()->addedMovies()->where('movie_id', $movie->id)->delete();
+        session()->flash('delete-message', "The movie has been removed");
+        return back();
+    }
 }
+    
+
