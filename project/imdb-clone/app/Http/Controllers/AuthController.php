@@ -92,15 +92,6 @@ class AuthController extends Controller
         }
     }
 
-    //delete user
-    /* function delete()
-    {
-        $id = isset($_POST['id'])?intval($_POST['id']):0;
-        if ($id>0) {
-            $query = "DELETE FROM users WHERE id = '$id'";
-        }
-    } */
-
     // profile for logged in users
     function profile()
     {

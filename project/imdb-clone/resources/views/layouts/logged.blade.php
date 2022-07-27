@@ -23,12 +23,16 @@
                 <li class="md:ml-16 mt-3 md:mt-0">
                     <a href="#" class="hover:text-gray-300">Movies</a>
                 </li>
+                 <li class="md:ml-16 mt-3 md:mt-0">
+                    <a href="#" class="hover:text-gray-300">Watchlists</a>
+                </li>
+
 
             </ul>
 
             <!-- Search bar -->
             <ul class="flex flex-col md:flex-row mt-3 md:mt-0 items-center">
-                <div class="relative mt-3 mr-4 md:mt-0 hover:text-gray-300">                    
+                <div class="relative mt-3 mr-4 md:mt-0 hover:text-gray-300">
                     <a class="hover:text-orange-500" href="{{ route('auth.logout')}}">Log out</a>
                 </div>
             </ul>
@@ -39,7 +43,7 @@
     </nav>
     @yield('content')
 
-    
+
 
 
 </body>

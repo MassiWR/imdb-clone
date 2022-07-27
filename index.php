@@ -1,1 +1,0 @@
-<div>IMDB-clone</div>

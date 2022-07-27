@@ -35,12 +35,8 @@
                            @if ($loop->index < 3)
                             <div class="mr-8">
                                 <div class="text-orange-300 text-lg">{{$cast['name']}}</div>
-                                <div class="text-gray-300 text-sm">as {{$cast['character']}}</div>
-                                
-                                
-                                
-                            </div>
-                                                                                       
+                                <div class="text-gray-300 text-sm">as {{$cast['character']}}</div>  
+                            </div>                                          
                            @endif
                         @endforeach
                         </div>

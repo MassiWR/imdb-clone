@@ -24,6 +24,9 @@
                 <li class="md:ml-16 mt-3 md:mt-0">
                     <a href="{{ route('menuMovies.showMenu')}}" class="hover:text-gray-300">Movies</a>
                 </li>
+                <li class="md:ml-16 mt-3 md:mt-0">
+                    <a href="{{ route('watchlist.create')}}" class="hover:text-gray-300">Watchlists</a>
+                </li>
 
             </ul>
 
