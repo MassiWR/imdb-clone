@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\WatchlistController;
-use Illuminate\Support\Facades\Route;
 
 
 
@@ -11,19 +11,21 @@ use Illuminate\Support\Facades\Route;
 /* |-------------------------------------------------------------------------- | Web Routes |-------------------------------------------------------------------------- | | Here is where you can register web routes for your application. These | routes are loaded by the RouteServiceProvider within a group which | contains the "web" middleware group. Now create something great! | */
 Route::get('/', [MoviesController::class , 'index'])->name('movies.index');
 Route::get('/movie/{id}', [MoviesController::class , 'show'])->name('movies.show');
-
-
 Route::get('/menuMovies', [MoviesController::class , 'showMenu'])->name('menuMovies.showMenu');
+Route::get('/watchlist', [WatchlistController::class , 'index']);
 
-Route::post('/save', [AuthController::class , 'save'])->name('auth.save');
-Route::post('/check', [AuthController::class , 'check'])->name('auth.check');
-Route::get('/logout', [AuthController::class , 'logout'])->name('auth.logout');
 
-Route::group(['middleware' => ['AuthCheck']], function () {
+// show register/create form
+Route::get('/register', [UserController::class , 'create']);
 
-    Route::get('/profile', [AuthController::class , 'profile']);
-    Route::get('/login', [AuthController::class , 'login'])->name('auth.login');
-    Route::get('/register', [AuthController::class , 'register'])->name('auth.register');
-    Route::get('/watchlist', [WatchlistController::class , 'index'])->name('watchlist.create');
+// Create new user
+Route::post('/users', [UserController::class , 'store']);
 
-});
+// log user out
+Route::post('/logout', [UserController::class , 'logout']);
+
+// show login form
+Route::get('/login', [UserController::class , 'login']);
+
+// log in user
+Route::post('/users/authenticate', [UserController::class , 'authenticate']);

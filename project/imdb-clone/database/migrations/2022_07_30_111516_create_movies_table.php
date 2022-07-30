@@ -17,9 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('movie_id');
-            $table->foreignId('watchlist_id')->references('id')->on('user_list')->cascadeOnDelete();
             $table->nullableTimestamps();
-
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-    //
+        Schema::dropIfExists('movies');
     }
 };

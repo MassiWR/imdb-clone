@@ -7,6 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>IMDB CLONE</title>
     <link rel="stylesheet" href="/css/app.css">
+    <script>
+    tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              laravel: '#e23b2d',
+            },
+          },
+        },
+      }
+  </script>
 </head>
 
 
@@ -25,34 +36,44 @@
                     <a href="{{ route('menuMovies.showMenu')}}" class="hover:text-gray-300">Movies</a>
                 </li>
                 <li class="md:ml-16 mt-3 md:mt-0">
-                    <a href="{{ route('watchlist.create')}}" class="hover:text-gray-300">Watchlists</a>
+                    <a href="#" class="hover:text-gray-300">Watchlists</a>
                 </li>
 
             </ul>
 
 
             <ul class="flex flex-col md:flex-row mt-3 md:mt-0 items-center">
+                @auth
+                 <div class="relative mt-3 mr-4 md:mt-0 hover:text-gray-300">
+                    <span class="font-bold uppercase">
+                        Welcome {{auth()->user()->name}}
+                    </span>
+                </div>
+                <div>
+                    <form class="inline" method="POST" action="/logout">
+                    @csrf
+                        <button type="submit">
+                            <i class="hover:text-red-600"></i> Logout
+                        </button>
+                    </form>
+                </div>
+                @else
                 <div class="relative mt-3 mr-4 md:mt-0 hover:text-gray-300">
-                    <a class="hover:text-orange-500" href="{{ route('auth.login')}}">Login</a>
+                    <a class="hover:text-orange-500" href="/login">Login</a>
                 </div>
+
                 <div class="relative mt-3 md:mt-0 hover:text-gray-300">
-                    <a class="hover:text-orange-500" href="{{ route('auth.register')}}">Register</a>
+                    <a class="hover:text-orange-500 fa-solid fa-user-plus" href="/register">Register</a>
                 </div>
+                @endauth
             </ul>
         </section>
     </nav>
     @yield('content')
-
-    <footer class="text-center bg-gray-900 text-white">
-        <div class="mb-0 text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2022 Copyright
-
-        </div>
-    </footer>
-
-
-
-
+<x-flash-message />
+<footer
+    class="bottom-0 left-0 w-full flex items-center justify-start font-bold bg-gray-600 text-black h-20 mt-24 opacity-90 md:justify-center">
+    <p class="ml-2">Copyright &copy; 2022</p>
+  </footer>
 </body>
-
 </html>

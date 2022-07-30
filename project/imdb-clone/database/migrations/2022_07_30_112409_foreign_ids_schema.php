@@ -13,22 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_list', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
+        Schema::table('watchlist', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained()->references('id')->on('users')->cascadeOnDelete();
-            $table->timestamps();
+            $table->foreignId('movie_id')->constrained()->onDelete('restrict');
+        });
+
+        Schema::table('movies', function (Blueprint $table) {
+            $table->foreignId('watchlist_id')->references('id')->on('watchlist')->cascadeOnDelete();
         });
     }
 
     /**
      * Reverse the migrations.
      *
-     *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('user_list');
+
     }
 };
