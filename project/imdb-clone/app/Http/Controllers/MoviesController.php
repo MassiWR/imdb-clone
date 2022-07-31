@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Movie;
+use Illuminate\Support\Facades\DB;
 
 class MoviesController extends Controller
 {
@@ -50,12 +52,12 @@ class MoviesController extends Controller
      *
      * @param  int  $id
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
+
         $movie = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/' . $id . '?append_to_response=credits')
             ->json();
-
 
         return view('movie', [
             'movie' => $movie,
@@ -79,4 +81,34 @@ class MoviesController extends Controller
             'topRated' => $topRated,
         ]);
     }
+
+    // add to watchlist
+    public function add(Request $request)
+    {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'movie_id' => 'required',
+
+        ]);
+        $formFields['user_id'] = auth()->id();
+        $movie_id = $request->movie_id;
+        $user_id = auth()->id();
+        if (Movie::where('movie_id', $movie_id)->where('user_id', $user_id)->exists()) {
+            return back()->with('message', 'Already exists in watchlist');
+        }
+        else {
+            Auth::user()->movies()->create($formFields);
+            return back()->with('message', $request->input('title') . ': Added to watchlist');
+        }
+    }
+
+    // show watchlists
+    public function watchlist(Request $request)
+    {
+        $watchlists = Auth::user()->movies()->get();
+        return view('watchlist', [
+            'watchlist' => $watchlists
+        ]);
+    }
+
 }

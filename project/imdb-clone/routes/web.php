@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MoviesController;
 use App\Http\Controllers\WatchlistController;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -12,8 +13,7 @@ use App\Http\Controllers\WatchlistController;
 Route::get('/', [MoviesController::class , 'index'])->name('movies.index');
 Route::get('/movie/{id}', [MoviesController::class , 'show'])->name('movies.show');
 Route::get('/menuMovies', [MoviesController::class , 'showMenu'])->name('menuMovies.showMenu');
-Route::get('/watchlist', [WatchlistController::class , 'index']);
-
+Route::get('/watchlist', [MoviesController::class , 'watchlist'])->middleware('auth');
 
 // show register/create form
 Route::get('/register', [UserController::class , 'create']);
@@ -25,7 +25,11 @@ Route::post('/users', [UserController::class , 'store']);
 Route::post('/logout', [UserController::class , 'logout']);
 
 // show login form
-Route::get('/login', [UserController::class , 'login']);
+Route::get('/login', [UserController::class , 'login'])->name('login');
 
 // log in user
 Route::post('/users/authenticate', [UserController::class , 'authenticate']);
+
+Route::post('/watchlists', [WatchlistController::class , 'store']);
+
+Route::post('/addmovie', [MoviesController::class , 'add']);

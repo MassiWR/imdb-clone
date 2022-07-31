@@ -14,13 +14,13 @@
 
                 <div class="md:ml-24">
                     <h2 class="text-4xl font-semibold mt-4">{{$movie['title']}}</h2>
-                    
+
                     <div class="flex items-center text-gray-400 text-sm">
                         <span>{{$movie['release_date']}}</span>
                         <span class="ml-2">|</span>
                         <span class="ml-2">
                             @foreach ($movie['genres'] as $genre)
-                                {{$genre['name']}}@if(!$loop->last),@endif 
+                                {{$genre['name']}}@if(!$loop->last),@endif
                             @endforeach
                         </span>
                     </div>
@@ -35,18 +35,38 @@
                            @if ($loop->index < 3)
                             <div class="mr-8">
                                 <div class="text-orange-300 text-lg">{{$cast['name']}}</div>
-                                <div class="text-gray-300 text-sm">as {{$cast['character']}}</div>  
-                            </div>                                          
+                                <div class="text-gray-300 text-sm">as {{$cast['character']}}</div>
+                            </div>
                            @endif
                         @endforeach
                         </div>
-                    
+
                     </div>
 
-                    <div class="mt-10">
-                    <button class="flex items-center bg-gray-500 text-white rounded-sm font-semibold px-6 py-3 hover:bg-orange-600" type="submit">Add to Watchlist</button>
-                </div>
 
+@auth
+<form action="/addmovie" method="POST">
+        @csrf
+                <div class="grid grid-cols-6 gap-6">
+
+                    <div class="col-span-6 sm:col-span-3">
+                        <input type="hidden" id="movie_id" name="movie_id" value="{{$movie['id']}}">
+                        <input type="hidden" name="title" id="title" value="{{$movie['title']}}" autocomplete="" placeholder="Enter name of watchlist" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm rounded">
+                    </div>
+                </div>
+            <div class="flex flex-wrap justify-end">
+                <button type="submit" class=" bg-green-500 hover:bg-green-700 text-white mt-1 mx-1 py-1  px-2 rounded">Add to watchlist</button>
+            </div>
+            <br />
+    </form>
+@endauth
+@guest
+    <div class="mt-4">
+        <h2>Sign in to add movies</h2>
+    </div>
+@endguest
+
+<br />
             </div>
         </div>
     </section> <!-- end of movie info -->
