@@ -40,7 +40,7 @@ class MoviesController extends Controller
             return [$genre['id'] => $genre['name']];
         });
 
-        return view('index', [
+        return view('pages.index', [
             'popularMovies' => $this->movies,
             'genres' => $genres
         ]);
@@ -58,7 +58,7 @@ class MoviesController extends Controller
             ->get('https://api.themoviedb.org/3/movie/' . $id . '?append_to_response=credits')
             ->json();
 
-        return view('movie', [
+        return view('pages.movie', [
             'movie' => $movie,
         ]);
     }
@@ -75,7 +75,7 @@ class MoviesController extends Controller
 
 
 
-        return view('menuMovies', [
+        return view('pages.menuMovies', [
             'trendingMovies' => $trendingMovies,
             'topRated' => $topRated,
         ]);
@@ -105,7 +105,7 @@ class MoviesController extends Controller
     public function watchlist(Request $request)
     {
         $watchlists = Auth::user()->movies()->get();
-        return view('watchlist', [
+        return view('pages.watchlist', [
             'watchlist' => $watchlists
         ]);
     }
