@@ -7,11 +7,10 @@ body {
 
 }
 footer {
-    display: flex;
-    justify-content: center;
-    position: fixed;
+    position:fixed;
+    text-align: center;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: gray;
+
 }

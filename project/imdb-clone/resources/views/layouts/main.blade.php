@@ -25,11 +25,11 @@
 
     <!-- Start of navbar -->
     <nav class="border-b border-gray-900 bg-gray-800">
-        <section class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-6">
+        <section class="container mx-auto flex flex-col md:flex-row items-center justify-between px-2 py-4">
 
             <ul class="flex flex-col md:flex-row items-center">
                 <li>
-                    <a class="logo" href="{{route('movies.index')}}">IMDB</a>
+                    <a class="logo" href="{{route('movies.index')}}">imdbClone</a>
                 </li>
 
                 <li class="md:ml-16 mt-3 md:mt-0">
@@ -72,7 +72,7 @@
     </nav>
     @yield('content')
 <x-flash-message />
-<footer>
+<footer class="bg-gray-800">
     <p class="ml-2 mt-4">Copyright &copy; 2022</p>
   </footer>
 </body>
