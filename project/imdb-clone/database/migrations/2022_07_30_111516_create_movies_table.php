@@ -16,10 +16,9 @@ return new class extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('movie_id');
-            $table->foreignId('watchlist_id')->references('id')->on('user_list')->cascadeOnDelete();
             $table->nullableTimestamps();
-
         });
     }
 
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-    //
+        Schema::dropIfExists('movies');
     }
 };
