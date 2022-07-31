@@ -1,5 +1,5 @@
 > The aim of the project was to create a simplified version of IMDb by using Laravel and mysql database.
-> Live demo [_here_](https://imdb-clon.herokuapp.com/).
+> Live demo [_here_]().
 
 ## Table of Contents
 
