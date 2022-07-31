@@ -19,7 +19,7 @@
              <form method="POST" action="/movies/{{$movie->id}}">
               @csrf
               @method('DELETE')
-              <button type="submit" class="text-red-300 hover:text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
+              <button type="submit" class="text-red-300 hover:text-red-500">Delete</button>
             </form>
         </div>
     @endforeach

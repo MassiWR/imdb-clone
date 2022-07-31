@@ -1,13 +1,13 @@
 ## Table of Contents
 
 - [General info](#general-information)
-- [Tech stack used](#tech-stack-used)
 - [Features](#features)
 - [Setup](#setup)
 
 ## General Information
 
 - A fullstack web application using Laravel 8, mysql, Docker, tailwindcss. With MVC architecture, relational databases and containerization with the help of Docker.
+- > Live demo [_here_]().
 
 ## Features
 
@@ -40,7 +40,7 @@ composer install
 DB_CONNECTION=mysql
 DB_HOST=db
 DB_PORT=3306
-DB_DATABASE= imdb
+DB_DATABASE=imdb
 DB_USERNAME=root
 DB_PASSWORD=example
 ```
