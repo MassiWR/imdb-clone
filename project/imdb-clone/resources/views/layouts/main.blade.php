@@ -72,9 +72,8 @@
     </nav>
     @yield('content')
 <x-flash-message />
-<footer
-    class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-gray-600 text-black h-20 mt-24 opacity-90 md:justify-center">
-    <p class="ml-2">Copyright &copy; 2022</p>
+<footer>
+    <p class="ml-2 mt-4">Copyright &copy; 2022</p>
   </footer>
 </body>
 </html>

@@ -10,10 +10,17 @@ use Illuminate\Support\Facades\Auth;
 
 
 /* |-------------------------------------------------------------------------- | Web Routes |-------------------------------------------------------------------------- | | Here is where you can register web routes for your application. These | routes are loaded by the RouteServiceProvider within a group which | contains the "web" middleware group. Now create something great! | */
+
+// all movies of landing page
 Route::get('/', [MoviesController::class , 'index'])->name('movies.index');
+// delete movie from list
+Route::delete('/movies/{movie}', [MoviesController::class , 'destroy'])->middleware('auth');
+
+// page for a single movie
 Route::get('/movie/{id}', [MoviesController::class , 'show'])->name('movies.show');
+
+// show page with trending and top rated movies
 Route::get('/menuMovies', [MoviesController::class , 'showMenu'])->name('menuMovies.showMenu');
-Route::get('/watchlist', [MoviesController::class , 'watchlist'])->middleware('auth');
 
 // show register/create form
 Route::get('/register', [UserController::class , 'create']);
@@ -30,6 +37,8 @@ Route::get('/login', [UserController::class , 'login'])->name('login');
 // log in user
 Route::post('/users/authenticate', [UserController::class , 'authenticate']);
 
-Route::post('/watchlists', [WatchlistController::class , 'store']);
+// get watchlist
+Route::get('/watchlist', [MoviesController::class , 'watchlist'])->middleware('auth');
 
-Route::post('/addmovie', [MoviesController::class , 'add']);
+// add movie to watchlist
+Route::post('/addmovie', [MoviesController::class , 'add'])->middleware('auth');

@@ -10,7 +10,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
                 @foreach ($trendingMovies as $movie)
-                @if ($loop->index < 5) <a href="{{ route('movies.show', $movie['id']) }}">
+                @if ($loop->index < 15) <a href="{{ route('movies.show', $movie['id']) }}">
                     {{$movie['title']}}
                     <img src="{{'https://image.tmdb.org/t/p/w185/'.$movie['poster_path']}}" alt="Poster" class="hover:opacity-90">
                     </a>
@@ -27,7 +27,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
                 @foreach ($topRated as $movie)
-                @if ($loop->index < 5) <a href="{{ route('movies.show', $movie['id']) }}">
+                @if ($loop->index < 15) <a href="{{ route('movies.show', $movie['id']) }}">
                     {{$movie['title']}}
                     <img src="{{'https://image.tmdb.org/t/p/w185/'.$movie['poster_path']}}" alt="Poster" class="hover:opacity-90">
                     </a>

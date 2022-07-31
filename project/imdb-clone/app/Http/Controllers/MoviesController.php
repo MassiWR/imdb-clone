@@ -14,7 +14,6 @@ class MoviesController extends Controller
 
     public function __construct()
     {
-
         // get popular movies
         $popularMovies = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/popular')
@@ -94,7 +93,7 @@ class MoviesController extends Controller
         $movie_id = $request->movie_id;
         $user_id = auth()->id();
         if (Movie::where('movie_id', $movie_id)->where('user_id', $user_id)->exists()) {
-            return back()->with('message', 'Already exists in watchlist');
+            return back()->with('message', 'Already exists in your watchlist');
         }
         else {
             Auth::user()->movies()->create($formFields);
@@ -111,4 +110,14 @@ class MoviesController extends Controller
         ]);
     }
 
+    // Delete movie for watchlist
+    public function destroy(Movie $movie)
+    {
+        // Make sure logged in user is owner
+        $deleteMovie = Movie::find($movie)->first();
+        if ($deleteMovie) {
+            $deleteMovie->delete();
+        }
+        return back()->with('message', 'movie deleted successfully');
+    }
 }
