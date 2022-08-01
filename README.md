@@ -7,7 +7,7 @@
 ## General Information
 
 - A fullstack web application using Laravel 8, mysql, Docker, tailwindcss. With MVC architecture, relational databases and containerization with the help of Docker.
-- > Live demo [_here_]().
+- > Live demo [_here_]('http://imdb-clone-grupp5.herokuapp.com').
 
 ## Features
 
