@@ -14,6 +14,7 @@
 - Register, login, logout
 - Retrieve a list of popular, highly rated movies from tmdb movie database using tmdb movie api
 - Add/remove movies to a logged in users watchlist
+- Review Movies
 
 ## Setup
 
